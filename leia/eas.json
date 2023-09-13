@@ -1,0 +1,55 @@
+{
+  "cli": {
+    "version": ">= 5.2.0"
+  },
+  "build": {
+      "production": {
+          "channel": "production",
+          "node": "18.16.0",
+          "distribution": "internal",
+          "android": {
+              "buildType": "apk"
+          },
+          "ios": {
+              "resourceClass": "m-medium"
+          },
+          "env": {
+              "EXPO_PUBLIC_API_URL": "https://api.production.com"
+          }
+      },
+      "development": {
+          "extends": "production",
+          "channel": "develop",
+          "developmentClient": true,
+          "android": {
+              "gradleCommand": ":app:assembleDebug",
+              "buildType": "apk"
+          },
+          "ios": {
+              "buildConfiguration": "Debug",
+              "resourceClass": "m-medium"
+          },
+          "env": {
+              "EXPO_PUBLIC_API_URL": "https://api.develop.com"
+          }
+      },
+      "qa": {
+          "extends": "production",
+          "channel": "qa",
+          "android": {
+              "gradleCommand": ":app:assembleDebug",
+              "buildType": "apk"
+          },
+          "ios": {
+              "buildConfiguration": "Debug",
+              "resourceClass": "m-medium"
+          },
+          "env": {
+              "EXPO_PUBLIC_API_URL": "https://api.qa.com"
+          }
+      }
+  },
+  "submit": {
+      "production": {}
+  }
+}
