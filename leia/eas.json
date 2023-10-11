@@ -6,8 +6,8 @@
       "production": {
           "channel": "production",
           "node": "18.16.0",
+          "distribution": "internal",
           "android": {
-              "gradleCommand": ":app:assembleRelease",
               "buildType": "apk"
           },
           "ios": {
@@ -19,14 +19,31 @@
       },
       "development": {
           "extends": "production",
-          "channel": "development",
+          "channel": "develop",
+          "developmentClient": true,
+          "android": {
+              "gradleCommand": ":app:assembleDebug",
+              "buildType": "apk"
+          },
+          "ios": {
+              "buildConfiguration": "Debug",
+              "resourceClass": "m-medium"
+          },
           "env": {
               "EXPO_PUBLIC_API_URL": "https://api.develop.com"
           }
       },
-      "test": {
+      "qa": {
           "extends": "production",
-          "channel": "test",
+          "channel": "qa",
+          "android": {
+              "gradleCommand": ":app:assembleDebug",
+              "buildType": "apk"
+          },
+          "ios": {
+              "buildConfiguration": "Debug",
+              "resourceClass": "m-medium"
+          },
           "env": {
               "EXPO_PUBLIC_API_URL": "https://api.qa.com"
           }

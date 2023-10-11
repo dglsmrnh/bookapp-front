@@ -4,9 +4,8 @@
 - Run on terminal: 
   - `cd leia`
   - `npm install`
-  - `$env:NODE_ENV="development"` on Powershell to select development enviroment
-  - or `NODE_ENV="development"` on Command Prompt
-  - `npx expo start`
+  - `$env:NODE_OPTIONS="--openssl-legacy-provider"; npx expo start` on Powershell
+  - or `set NODE_OPTIONS=--openssl-legacy-provider && npx expo start` on Command Prompt
 - or follow instructions on https://docs.expo.dev/get-started/create-a-new-app/ to run on emulator or any device on the same network as your pc.
 
 ## Important notes
